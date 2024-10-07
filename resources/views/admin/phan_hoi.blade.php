@@ -1,7 +1,5 @@
 @extends('share.master_page')
 @section('content')
-
-
     <div class="row" id="app">
 
 

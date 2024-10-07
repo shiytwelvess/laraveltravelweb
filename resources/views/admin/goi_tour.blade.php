@@ -18,8 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tên Địa điểm</label>
-                        <select v-model='create_goi_tour.idDiaDiem' name="" id=""
-                            class="form-control mb-2">
+                        <select v-model='create_goi_tour.idDiaDiem' name="" id="" class="form-control mb-2">
                             <template v-for='(value,key) in list_diaChi'>
                                 <option v-bind:value="value.id">@{{ value.tenDiaDiem }}</option>
                             </template>
@@ -37,15 +36,10 @@
                         </div>
                         <div id="holder" style="margin-top:15px;max-height:100px;"></div>
                     </div>
-                    {{-- <div class="form-group"> --}}
-                        <div class="form-group">
-                            <label for="">Mô Tả</label>
-                            <textarea id="moTa-editor" v-model='create_goi_tour.moTa' class="form-control" cols="30" rows="10"></textarea>
-                        </div>
-                        {{-- <label for="">Mô Tả</label>
-                        <input v-model='create_goi_tour.moTa' type="text" class="form-control mb-2"
-                            placeholder="Mô tả ngắn gọn ">
-                    </div> --}}
+                    <div class="form-group">
+                        <label for="">Mô Tả</label>
+                        <textarea id="moTa-editor" v-model='create_goi_tour.moTa' class="form-control" cols="30" rows="10"></textarea>
+                    </div>
                     <div class="form-group">
                         <label for="">Giờ và ngày bắt đầu</label>
                         <input v-model='create_goi_tour.thoiGianBatDau' type="datetime-local" class="form-control mb-2">
@@ -54,22 +48,6 @@
                         <label for="">Giờ và ngày kết thúc</label>
                         <input v-model='create_goi_tour.thoiGianKetThuc' type="datetime-local" class="form-control mb-2">
                     </div>
-                    {{-- <div class="form-group">
-                        <label for="">Giờ Bắt Đầu</label>
-                        <input v-model='create_goi_tour.gio_bat_dau' type="time" class="form-control mb-2">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Giờ Kết Thúc</label>
-                        <input v-model='create_goi_tour.gio_ket_thuc' type="time" class="form-control mb-2">
-                    </div> --}}
-                    {{-- <div class="form-group">
-                        <label for="">Ngày Bắt Đầu</label>
-                        <input v-model='create_goi_tour.ngay_bat_dau' type="date" class="form-control mb-2">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Ngày Kết Thúc</label>
-                        <input v-model='create_goi_tour.ngay_ket_thuc' type="date" class="form-control mb-2">
-                    </div> --}}
                     <div class="form-group">
                         <label for="">Giá Cả</label>
                         <input v-model='create_goi_tour.gia' type="number" class="form-control mb-2"
@@ -77,8 +55,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Trạng Thái</label>
-                        <select v-model='create_goi_tour.trangThai' name="" id=""
-                            class="form-control">
+                        <select v-model='create_goi_tour.trangThai' name="" id="" class="form-control">
                             <option value="0">Ẩn</option>
                             <option value="1">Hiển Thị</option>
                         </select>
@@ -129,28 +106,15 @@
                                         <img v-bind:src="value.hinh_anh" style="width: 50px;height:30px">
                                     </td>
                                     <td class="text-center align-middle">
-                                        <button class="btn btn-info" v-on:click="moTa = value.moTa" data-bs-toggle="modal"
-                                            data-bs-target="#motanganModal">Mô tả</button>
+                                        <button class="btn btn-info" v-on:click="moTa = value.moTa"
+                                            data-bs-toggle="modal" data-bs-target="#motanganModal">Mô tả</button>
                                     </td>
-                                    {{-- <td class="align-middle text-center">@{{ value.moTa }}</td> --}}
                                     <td class="align-middle text-center">@{{ value.thoiGianBatDau }}</td>
                                     <td class="align-middle text-center">@{{ value.thoiGianKetThuc }}</td>
                                     <td class="align-middle text-center text-danger">@{{ formatCurrency(value.gia) }}</td>
-                                    {{-- <td class="align-middle text-center">@{{ value.gia }}</td> --}}
-                                    <td class="align-middle text-center">@{{ value.trangThai === 0 ? 'Ẩn' : 'Hiện'}}</td>
-                                    {{-- <td class="align-middle text-center">
-                                        <script>
-                                          if (@{{ value.trangThai }} === 0) {
-                                            <p>"Thi hiện thi";</p>
-                                          }
-                                          else {
-                                            <p>"Thi hiện thi";</p>
-                                          }
-                                        </script>
-                                      </td> --}}
+                                    <td class="align-middle text-center">@{{ value.trangThai === 0 ? 'Ẩn' : 'Hiện' }}</td>
                                     <label for="value.trangThai">Trạng Thái</label>
-                                    <select name="" id=""
-                                        class="form-control">
+                                    <select name="" id="" class="form-control">
                                         <option value="0">Ẩn</option>
                                         <option value="1">Hiển Thị</option>
                                     </select>
@@ -167,24 +131,24 @@
                     </div>
 
                     <div class="modal fade" id="motanganModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Mô tả</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <textarea disabled id="ckeditorInstance" cols="30" rows="10" class="form-control">@{{ moTa }}</textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Đóng</button>
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mô tả</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea disabled id="ckeditorInstance" cols="30" rows="10" class="form-control">@{{ moTa }}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -222,8 +186,8 @@
                                     <input type="hidden" v-model='up_goi_tour.id'>
                                     <div class="form-group">
                                         <label for="">Tên Gói Tour</label>
-                                        <input v-model='up_goi_tour.tenTour' type="text"
-                                            class="form-control mb-2" placeholder="Tên Gói Tour">
+                                        <input v-model='up_goi_tour.tenTour' type="text" class="form-control mb-2"
+                                            placeholder="Tên Gói Tour">
                                     </div>
                                     <div class="form-group mt-3">
                                         <label>Slug </label>
@@ -259,12 +223,12 @@
                                     <div class="form-group">
                                         <label for="">Thời Gian Bắt Đầu</label>
                                         <input v-model='up_goi_tour.thoiGianBatDau' type="datetime-local"
-                                        class="form-control mb-2">
+                                            class="form-control mb-2">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Thời Gian Kết Thúc</label>
                                         <input v-model='up_goi_tour.thoiGianKetThuc' type="datetime-local"
-                                        class="form-control mb-2">
+                                            class="form-control mb-2">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Giá Cả</label>
@@ -310,7 +274,7 @@
                 del_goi_tour: {},
                 up_goi_tour: {},
                 slug: '',
-                moTa:'',
+                moTa: '',
             },
             created() {
                 this.loadDiaChi();
@@ -332,11 +296,11 @@
                     axios
                         .post('/admin/goi-tour/index', this.create_goi_tour)
                         .then((res) => {
-                                toastr.success('Thêm mới thành công');
-                                this.loadGoiTour();
-                                this.create_goi_tour = {};
-                                this.slug = '';
-                                this.slug = '';
+                            toastr.success('Thêm mới thành công');
+                            this.loadGoiTour();
+                            this.create_goi_tour = {};
+                            this.slug = '';
+                            this.slug = '';
                         })
                         .catch((res) => {
                             $.each(res.response.data.errors, function(k, v) {
@@ -418,10 +382,10 @@
     </script>
     <script src="//cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
     <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function () {
-        CKEDITOR.replace('moTa-editor').on('change', () => {
-            this.create_goi_tour.moTa = CKEDITOR.instances['moTa-editor'].getData();
+        document.addEventListener("DOMContentLoaded", function() {
+            CKEDITOR.replace('moTa-editor').on('change', () => {
+                this.create_goi_tour.moTa = CKEDITOR.instances['moTa-editor'].getData();
+            });
         });
-    });
     </script>
 @endsection

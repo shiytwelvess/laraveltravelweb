@@ -59,7 +59,6 @@
                         .get('/bill-khach-san/data')
                         .then((res) => {
                             this.list_hoa_don = res.data.data;
-                            // this.loadData();
                         });
                 },
                 formatCurrency(value) {

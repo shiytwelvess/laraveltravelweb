@@ -25,7 +25,7 @@
                         <tbody>
                             <tr v-for="(value, key) in list_khach_hang">
                                 <td class="text-nowrap text-center align-middle">@{{ key + 1 }}</td>
-                                <th class="text-nowrap text-center align-middle">@{{ value.hoTen}}</th>
+                                <th class="text-nowrap text-center align-middle">@{{ value.hoTen }}</th>
                                 <th class="text-nowrap text-center align-middle">@{{ value.email }}</th>
                                 <td class="text-nowrap align-middle">@{{ value.soDienThoai }}</td>
                                 <td class="text-nowrap align-middle">@{{ value.diaChi }}</td>
@@ -35,15 +35,16 @@
                                         v-if="value.gioiTinh == 1">Nam</button>
                                     <button style="width: 135px" class="btn btn-dark" v-else>Nữ</button>
                                 </td>
-                                    <td class="text-nowrap text-center align-middle">
-                                        <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-danger" v-if="value.trangThai == -1">Tạm Khóa</button>
-                                        <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-success" v-if="value.trangThai == 1">Đang Mở</button>
-                                        <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-warning" v-if="value.trangThai == 0">Chưa Kích Hoạt</button>
-                                    </td>
+                                <td class="text-nowrap text-center align-middle">
+                                    <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-danger"
+                                        v-if="value.trangThai == -1">Tạm Khóa</button>
+                                    <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-success"
+                                        v-if="value.trangThai == 1">Đang Mở</button>
+                                    <button style="width: 135px" v-on:click='changeTk(value.id)' class="btn btn-warning"
+                                        v-if="value.trangThai == 0">Chưa Kích Hoạt</button>
+                                </td>
 
                                 <td class="text-nowrap text-center align-middle">
-                                    {{-- <button v-on:click='edit = value' class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#updateModal">Cập Nhật</button> --}}
                                     <button v-on:click='delete_tk = value' class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#delModal">Xóa Tài Khoản</button>
                                 </td>
@@ -85,9 +86,6 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    {{-- <div class="form-group mt-2">
-                                <input v-model="edit.id" type="hidden" class="form-control">
-                            </div> --}}
                                     <div class="form-group mt-2">
                                         <label>Họ Và Tên</label>
                                         <input v-model="edit.hoTen type="text" class="form-control"

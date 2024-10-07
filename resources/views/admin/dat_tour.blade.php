@@ -58,7 +58,7 @@
                 </div>
                 <div class="card-footer text-end">
                     <button class="btn btn-primary">Thêm Mới Đặt Tour</button>
-                </div>  
+                </div>
             </div>
         </div>
     </div>

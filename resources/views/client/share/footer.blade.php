@@ -14,9 +14,6 @@
               <h6 class="text-uppercase font-weight-bold" style="font-family: Arial">
                 <a href="#!" class="text-white">VỀ CHÚNG TÔI</a>
               </h6>
-              {{-- <h4 class="footer-logo">
-                <a style="font-size:40px" class="text-white">Travel</a>
-            </h4> --}}
             </div>
             <!-- Grid column -->
 

@@ -49,11 +49,7 @@ class AdminController extends Controller
 
         Admin::create($data);
     }
-
-    // public function viewHome()
-    // {
-    //     return redirect('/admin/cau-hinh/index');
-    // }
+    
     public function deleteNhanSu(Request $request){
         $acc = Admin::where('id',$request->id)->first();
         $acc->delete();

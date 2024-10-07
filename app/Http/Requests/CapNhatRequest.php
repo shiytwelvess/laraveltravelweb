@@ -18,7 +18,6 @@ class CapNhatRequest extends FormRequest
     {
         return [
             'hoTen'               =>  'required|min:5|max:50|regex:/^[a-zA-Z\s]+$/',
-            // 'email'                 =>  'required|email',
             'soDienThoai'           => 'required|digits:10|regex:/^[0-9]+$/',
             'diaChi'               =>  'required|min:6|max:50',
             'gioiTinh'             =>  'required',

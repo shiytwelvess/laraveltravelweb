@@ -30,7 +30,6 @@
                     </div>
                     <div class="col-lg-4 col-md-12 col-12">
                         <div class="product-details ps-lg-4">
-                            {{-- <div class="mb-3"><span class="product-availability">In Stock</span></div> --}}
 
                             <div class="product-rating d-flex align-items-center mb-3">
                                 <span class="star-rating">
@@ -70,7 +69,6 @@
                             <div class="product-price-wrapper mb-2">
                                 <strong class="text-danger" style="font-size:20px">Giá Tour :</strong>
                                 <span class="product-price regular-price">{{ number_format( $tour->gia) }} VND</span>
-                                {{-- <del class="product-price compare-price ms-2">$32.00</del> --}}
 
                             </div>
                             <div class="product-sku product-meta">
@@ -103,11 +101,6 @@
 
 
                                     </div>
-                                    {{-- <div class="quantity d-flex align-items-center">
-                                        <button ><img src="/assets/img/icon/minus.svg" alt="minus"></button>
-                                        <input class="qty-input" type="number" name="qty" value="1" min="0">
-                                        <button  ><img src="/assets/img/icon/plus.svg" alt="plus"></button>
-                                    </div> --}}
                                     <b class="text-danger">Lưu ý :</b><span> nếu số lượng mua là 3 trở lên sẽ giảm <span
                                             class="text-danger">10%</span>, nếu số lượng mua là 5 trở lên sẽ giảm <span
                                             class="text-danger">15%</span> .</span>
@@ -262,14 +255,6 @@
                     }
                     console.log(this.create_chi_tiet);
                 },
-                // creatChiTiet() {
-                //     axios
-                //         .post('/chi-tiet-thanh-toan/index', this.create_chi_tiet)
-                //         .then((res) => {
-
-                //         });
-                // },
-
 
                 traVeLogin() {
                     window.location.href = 'http://127.0.0.1:8000/login';

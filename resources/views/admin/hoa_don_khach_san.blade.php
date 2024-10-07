@@ -36,7 +36,7 @@
                                     <button style="width: 150px" v-on:click='changHD(value.id)' class="btn btn-success"
                                         v-else>Đã Thanh Toán</button>
                                 </td>
-                                <td class="text-center align-middle">@{{formatCurrency(value.tongTien)}}</td>
+                                <td class="text-center align-middle">@{{ formatCurrency(value.tongTien) }}</td>
                                 <td class="text-center text-center align-middle">
                                     <button v-on:click='edit = value' class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#updateModal">Cập Nhật</button>
@@ -78,109 +78,104 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                    {{-- <div class="form-group mt-2">
-                                <input v-model="edit.id" type="hidden" class="form-control">
-                            </div> --}}
-                                    <div class="form-group mt-2">
-                                        <label>Họ Và Tên</label>
-                                        <input v-model="edit.hoTen" type="text" class="form-control"
-                                            placeholder="Nhập họ tên ...">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label>Email</label>
-                                        <input v-model="edit.email" type="text" class="form-control"
-                                            placeholder="Nhập email ...">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label>Số Điện Thoại</label>
-                                        <input v-model="edit.soDienThoai" type="text" class="form-control"
-                                            placeholder="Nhập số điện thoại ...">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label>Địa Chỉ</label>
-                                        <input v-model="edit.diaChi" type="text" class="form-control"
-                                            placeholder="Nhập dịa chỉ ...">
-                                    </div>
-                                    <div class="form-group mt-2">
-                                        <label>Tổng Tiền</label>
-                                        <input v-model="edit.tongTien" type="text" class="form-control">
-                                    </div>
+                                <div class="form-group mt-2">
+                                    <label>Họ Và Tên</label>
+                                    <input v-model="edit.hoTen" type="text" class="form-control"
+                                        placeholder="Nhập họ tên ...">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label>Email</label>
+                                    <input v-model="edit.email" type="text" class="form-control"
+                                        placeholder="Nhập email ...">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label>Số Điện Thoại</label>
+                                    <input v-model="edit.soDienThoai" type="text" class="form-control"
+                                        placeholder="Nhập số điện thoại ...">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label>Địa Chỉ</label>
+                                    <input v-model="edit.diaChi" type="text" class="form-control"
+                                        placeholder="Nhập dịa chỉ ...">
+                                </div>
+                                <div class="form-group mt-2">
+                                    <label>Tổng Tiền</label>
+                                    <input v-model="edit.tongTien" type="text" class="form-control">
+                                </div>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Thoát</button>
-                                    <button type="button" class="btn btn-primary" v-on:click='updateTk()'
-                                        data-bs-dismiss="modal">Đồng
-                                        ý</button>
-                                </div>
                             </div>
-
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Thoát</button>
+                                <button type="button" class="btn btn-primary" v-on:click='updateTk()'
+                                    data-bs-dismiss="modal">Đồng
+                                    ý</button>
+                            </div>
                         </div>
-                        {{-- end  --}}
+
                     </div>
+                    {{-- end  --}}
                 </div>
             </div>
         </div>
-    @endsection
-    @section('js')
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                    list_hoa_don: [],
-                    delete_tk: {},
-                    edit: {},
-                    change: {},
+    </div>
+@endsection
+@section('js')
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                list_hoa_don: [],
+                delete_tk: {},
+                edit: {},
+                change: {},
 
+            },
+            created() {
+                this.loadData();
+            },
+            methods: {
+                loadData() {
+                    axios
+                        .get('/admin/hoa-don-khach-san/data')
+                        .then((res) => {
+                            this.list_hoa_don = res.data.data;
+                            // this.loadData();
+                        });
                 },
-                created() {
-                    this.loadData();
+                deleteTk() {
+                    axios
+                        .post('/admin/hoa-don-khach-san/delete', this.delete_tk)
+                        .then((res) => {
+                            toastr.success('Xóa Thành Công !!');
+                            this.loadData();
+
+                        });
                 },
-                methods: {
-                    loadData() {
-                        axios
-                            .get('/admin/hoa-don-khach-san/data')
-                            .then((res) => {
-                                this.list_hoa_don = res.data.data;
-                                // this.loadData();
-                            });
-                    },
-                    deleteTk() {
-                        axios
-                            .post('/admin/hoa-don-khach-san/delete', this.delete_tk)
-                            .then((res) => {
-                                toastr.success('Xóa Thành Công !!');
-                                this.loadData();
+                updateTk() {
+                    axios
+                        .post('/admin/hoa-don-khach-san/update', this.edit)
+                        .then((res) => {
+                            toastr.success('Cập Nhật Thành Công');
+                            this.loadData();
 
-                            });
-                    },
-                    updateTk() {
-                        axios
-                            .post('/admin/hoa-don-khach-san/update', this.edit)
-                            .then((res) => {
-                                toastr.success('Cập Nhật Thành Công');
-                                this.loadData();
-
-                            });
-                    },
-                    changHD(id) {
-                        axios
-                            .get('/admin/hoa-don-khach-san/change-status/' + id)
-                            .then((res) => {
-                                toastr.success('Cập Nhật Thành Công');
-                                this.loadData();
-                            });
-                    },
-                    formatCurrency(value) {
-                        return new Intl.NumberFormat("vi-VI", {
-                            style: "currency",
-                            currency: "VND"
-                        }).format(value);
-                    },
-
+                        });
                 },
-            });
-        </script>
-    @endsection
+                changHD(id) {
+                    axios
+                        .get('/admin/hoa-don-khach-san/change-status/' + id)
+                        .then((res) => {
+                            toastr.success('Cập Nhật Thành Công');
+                            this.loadData();
+                        });
+                },
+                formatCurrency(value) {
+                    return new Intl.NumberFormat("vi-VI", {
+                        style: "currency",
+                        currency: "VND"
+                    }).format(value);
+                },
+
+            },
+        });
+    </script>
+@endsection

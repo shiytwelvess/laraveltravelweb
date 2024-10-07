@@ -21,9 +21,6 @@
                                             <div class="article-content">
                                                 <p style="font-size:20px"> &emsp; {{ $value->mo_ta_ngan}}</p>
                                              </div>
-                                            {{-- <div class="article-content">
-                                               <p style="font-size:20px"> &emsp; {{ $value->noi_dung }}</p>
-                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +31,7 @@
                 <div class="col-md-3" >
                     <div class="filter-widget" style="margin-top: 15px">
                         <div class="filter-header faq-heading heading_18 d-flex align-items-center border-bottom">
-                         <h4>List Bài Viết</h4>
+                         <h4>Danh sách Bài Viết</h4>
                         </div>
                         <div class="filter-related">
                             @foreach ($bai_viet as $key => $value)

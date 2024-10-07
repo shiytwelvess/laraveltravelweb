@@ -7,7 +7,6 @@
             <div class="section-authentication-signin">
                 <div class="container-fluid">
                     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-                        {{-- Ra giữa trang col  --}}
                         <div class="col mx-auto">
                             <div class="mb-4 text-center">
                                 <img src="/assets_rocker/images/banner/admin_travel.jpg" width="180" alt="" />

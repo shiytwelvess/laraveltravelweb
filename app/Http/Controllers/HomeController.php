@@ -32,11 +32,6 @@ class HomeController extends Controller
         return view('client.lien_he');
     }
 
-    // public function viewChiTietTuor(){
-    //     $goi_tour = GoiTour::orderByDESC('id')->first();
-    //     return view('client.chi_tiet_tour' , compact('goi_tour'));
-    // }
-
         public function search(Request $request){
         $search = $request->search;
         $list_tour = Tour::where('tenTour' , 'like' , '%' . $search . '%')

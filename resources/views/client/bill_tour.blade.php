@@ -20,7 +20,6 @@
                                 <th class="text-center text-nowrap text-danger">Ngày Đặt</th>
 
                                 <th class="text-center text-nowrap text-danger">Tổng Tiền</th>
-                                {{-- <th class="text-center text-nowrap text-danger">Thanh Toán</th> --}}
 
                             </tr>
                         </thead>
@@ -35,12 +34,6 @@
                                 <td class="text-nowrap text-center align-middle">@{{ value.diaChi }}</td>
                                 <td class="text-nowrap text-center align-middle">@{{ value.created_at }}</td>
                                 <td class="text-nowrap text-center align-middle">@{{ formatCurrency(value.tongTien) }}</td>
-                                {{-- <td class="text-nowrap text-center align-middle">
-                                    <button style="width: 150px"  class="btn btn-danger"
-                                        v-if="@{{ value.trangThai }} == 0">Chưa Thanh Toán</button>
-                                    <button style="width: 150px"  class="btn btn-success"
-                                        v-else>Đã Thanh Toán</button>
-                                </td> --}}
                             </tr>
                         </tbody>
                     </table>

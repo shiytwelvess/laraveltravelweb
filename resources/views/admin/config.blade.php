@@ -12,7 +12,8 @@
                         <div class="form-group">
                             <label for="">Ảnh Nền Background 1</label>
                             <div class="input-group">
-                                <input value="{{ $config->bg_home }}" id="hinh_anh" class="form-control" type="text" name="bg_home">
+                                <input value="{{ isset($config) ? $config->bg_home : '' }}" id="hinh_anh"
+                                    class="form-control" type="text" name="bg_home">
                                 <span class="input-group-prepend">
                                     <a id="lfm" data-input="hinh_anh" data-preview="holder" class="btn btn-primary">
                                         <i class="fa fa-picture-o"></i> Choose
@@ -20,39 +21,50 @@
                                 </span>
                             </div>
                             <div id="holder" style="margin-top:15px;max-height:200px;">
-                                <img style="height:200px; width:370px" src="{{ $config->bg_home ? $config->bg_home : '/assets_rocker/images/banner/bg_1.jpg' }}" alt="">
+                                <img style="height:200px; width:370px"
+                                    src="{{ isset($config) && $config->bg_home ? $config->bg_home : '/assets_rocker/images/banner/bg_1.png' }}"
+                                    alt="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="">Ảnh Nền Background 2</label>
                             <div class="input-group">
-                                <input value="{{ $config->bg_home_1 }}" id="hinh_anh_1" class="form-control" type="text" name="bg_home_1">
+                                <input value="{{ isset($config) ? $config->bg_home_1 : '' }}" id="hinh_anh_1"
+                                    class="form-control" type="text" name="bg_home_1">
                                 <span class="input-group-prepend">
-                                    <a id="lfm_1" data-input="hinh_anh_1" data-preview="holder_1" class="btn btn-primary">
+                                    <a id="lfm_1" data-input="hinh_anh_1" data-preview="holder_1"
+                                        class="btn btn-primary">
                                         <i class="fa fa-picture-o"></i> Choose
                                     </a>
                                 </span>
                             </div>
                             <div id="holder_1" style="margin-top:15px;max-height:200px;">
-                                <img style="height:200px; width:370px" src="{{ $config->bg_home_1 ? $config->bg_home_1 : '/assets_rocker/images/banner/bg_2.jpg' }}" alt="">
+                                <img style="height:200px; width:370px"
+                                    src="{{ isset($config) && $config->bg_home_1 ? $config->bg_home_1 : '/assets_rocker/images/banner/bg_2.png' }}"
+                                    alt="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="">Ảnh Nền Background 3</label>
                             <div class="input-group">
-                                <input value="{{ $config->bg_home_2 }}" id="hinh_anh_2" class="form-control" type="text" name="bg_home_2">
+                                <input value="{{ isset($config) ? $config->bg_home_2 : '' }}" id="hinh_anh_2"
+                                    class="form-control" type="text" name="bg_home_2">
                                 <span class="input-group-prepend">
-                                    <a id="lfm_2" data-input="hinh_anh_2" data-preview="holder_2" class="btn btn-primary">
+                                    <a id="lfm_2" data-input="hinh_anh_2" data-preview="holder_2"
+                                        class="btn btn-primary">
                                         <i class="fa fa-picture-o"></i> Choose
                                     </a>
                                 </span>
                             </div>
                             <div id="holder_2" style="margin-top:15px;max-height:200px;">
-                                <img style="height:200px; width:370px" src="{{ $config->bg_home_2 ? $config->bg_home_2 : '/assets_rocker/images/banner/bg_3.jpg' }}" alt="">
+                                <img style="height:200px; width:370px"
+                                    src="{{ isset($config) && $config->bg_home_2 ? $config->bg_home_2 : '/assets_rocker/images/banner/bg_3.png' }}"
+                                    alt="">
                             </div>
                         </div>
+
 
                         <div class="form-group mt-3">
                             <label>Địa Điểm 1 Hiển Thị Ở Trang Chủ</label>

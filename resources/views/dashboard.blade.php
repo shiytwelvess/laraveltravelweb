@@ -17,18 +17,6 @@
         </div>
     </div>
 </div>
-{{-- <div class="form-group">
-    <label for="dateRangePicker">Chọn khoảng ngày:</label>
-    <input class="form-control" type="text" id="dateRangePicker" name="dateRangePicker">
-    <button class="btn btn-primary" onclick="showChart()">Xem biểu đồ</button>
-</div>
-<div>
-    <label for="chartType">Loại biểu đồ:</label>
-    <select id="chartType" name="chartType">
-        <option value="bar">Cột</option>
-        <option value="line">Đường</option>
-    </select>
-</div> --}}
 <div>
     <canvas id="monthlyRevenueChart"></canvas>
 </div>

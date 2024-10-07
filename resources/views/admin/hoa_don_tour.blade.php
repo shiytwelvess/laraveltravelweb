@@ -25,7 +25,7 @@
                         <tbody>
                             <tr v-for="(value, key) in list_hoa_don">
                                 <td class="text-nowrap text-center align-middle">@{{ key + 1 }}</td>
-                                <th class="text-nowrap text-center align-middle">@{{ value.hoTen}}</th>
+                                <th class="text-nowrap text-center align-middle">@{{ value.hoTen }}</th>
                                 <th class="text-nowrap text-center align-middle">@{{ value.email }}</th>
                                 <td class="text-nowrap align-middle">@{{ value.soDienThoai }}</td>
                                 <td class="text-nowrap align-middle">@{{ value.diaChi }}</td>
@@ -36,7 +36,7 @@
                                     <button style="width: 150px" v-on:click='changHD(value.id)' class="btn btn-success"
                                         v-else>Đã Thanh Toán</button>
                                 </td>
-                                <td class="text-center align-middle">@{{formatCurrency(value.tongTien)}}</td>
+                                <td class="text-center align-middle">@{{ formatCurrency(value.tongTien) }}</td>
                                 <td class="text-center text-center align-middle">
                                     <button v-on:click='edit = value' class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#updateModal">Cập Nhật</button>
@@ -79,9 +79,6 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    {{-- <div class="form-group mt-2">
-                                <input v-model="edit.id" type="hidden" class="form-control">
-                            </div> --}}
                                     <div class="form-group mt-2">
                                         <label>Họ Và Tên</label>
                                         <input v-model="edit.hoTen" type="text" class="form-control"
@@ -144,7 +141,6 @@
                             .get('/admin/hoa-don-tour/data')
                             .then((res) => {
                                 this.list_hoa_don = res.data.data;
-                                // this.loadData();
                             });
                     },
                     deleteTk() {

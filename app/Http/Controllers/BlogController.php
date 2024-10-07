@@ -40,7 +40,6 @@ class BlogController extends Controller
                 if(strpos($value->khach_hang_yeu_thich, $id_user) !== false) {
                     array_push($arr, $value);
                 }
-                // dd(strpos($value->khach_hang_yeu_thich, 3));
             }
         }else{
 
@@ -52,7 +51,6 @@ class BlogController extends Controller
 
 
     public function changeYeuThich(Request $request){
-        // dd($request->all());
         $change = KhachSan::where('id', $request->id)->first();
         $list_yeu_thich = explode(',', $change->khach_hang_yeu_thich);
         $del = '';
@@ -60,10 +58,7 @@ class BlogController extends Controller
             if($value == $request->id_khach_hang)
                 $del = $value . ',';
         }
-        // dd($del);
         if(strlen($del) > 0) {
-            // $vi_tri_xoa = $del * 2 - strlen($change->khach_hang_yeu_thich);
-            // dd($vi_tri_xoa);
             $change->khach_hang_yeu_thich = str_replace($del, '', $change->khach_hang_yeu_thich );
             $change->save();
             return response()->json([

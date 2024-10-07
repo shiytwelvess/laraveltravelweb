@@ -57,12 +57,6 @@ class GoiTuorController extends Controller
     public function getDataHoaDon()
     {
         $data = Hoadontour::get();
-        // $result = [];
-        // foreach($data as $i)
-        // {
-        //     $p = $data[$i]->idCustomer;
-        //     dd($p);
-        // }
         return response()->json([
             'data' => $data
         ]);

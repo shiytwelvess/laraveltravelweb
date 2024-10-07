@@ -19,7 +19,6 @@
                                 <input name="hoTen" value="{{ $user->hoTen }}" type="text" placeholder="Nhập vào họ và tên">
                             </div>
                             <div class="col-md-12 mt-3 mb-3" style="border-color:gray">
-                                    {{-- <p id="email"><strong>Mail: </strong></p> --}}
                                     <input name="soDienThoai" value="{{ $user->email }}" type="text" placeholder="Nhập vào địa chỉ email">
                             </div>
                             <div class="col-md-12">

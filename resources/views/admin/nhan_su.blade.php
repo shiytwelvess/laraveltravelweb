@@ -1,6 +1,6 @@
 @extends('share.master_page')
 @section('content')
-    <div class="row" id="app" >
+    <div class="row" id="app">
         <div id="app" class="row mt-3">
             <div class="col-md-4">
                 <div class="card border-danger border-bottom border-3 border-0">
@@ -87,63 +87,63 @@
             </div>
         </div>
     </div>
-    @endsection
-    @section('js')
-        <script>
-            new Vue({
-                el: '#app',
-                data: {
-                    them_moi: {},
-                    data: [],
-                    del: {},
-                },
-                created() {
-                    this.loadData();
-                },
-                methods: {
-                    themMoiNhanSu() {
-                        axios
-                            .post('/admin/nhan-su/create', this.them_moi)
-                            .then((res) => {
-                                toastr.success("Đã thêm mới nhân sự thành công!");
-                                this.loadData();
-                            })
-                            .catch((res) => {
-                                $.each(res.response.data.errors, function(k, v) {
-                                    toastr.error(v[0]);
-                                });
+@endsection
+@section('js')
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                them_moi: {},
+                data: [],
+                del: {},
+            },
+            created() {
+                this.loadData();
+            },
+            methods: {
+                themMoiNhanSu() {
+                    axios
+                        .post('/admin/nhan-su/create', this.them_moi)
+                        .then((res) => {
+                            toastr.success("Đã thêm mới nhân sự thành công!");
+                            this.loadData();
+                        })
+                        .catch((res) => {
+                            $.each(res.response.data.errors, function(k, v) {
+                                toastr.error(v[0]);
                             });
+                        });
 
-                    },
-                    loadData() {
-                        axios
-                            .get('/admin/nhan-su/data')
-                            .then((res) => {
-                                this.data = res.data.data;
-                            });
-                    },
-                    delTk() {
-                        axios
-                            .post('/admin/nhan-su/delete', this.del)
-                            .then((res) => {
-                                this.loadData();
-                                toastr.success('Xóa Thành Công');
-                            })
-                            .catch((res) => {
-                                $.each(res.response.data.errors, function(k, v) {
-                                    toastr.error(v[0]);
-                                });
-                            });
-                    },
-                    change(id) {
-                        axios
-                            .get('/admin/nhan-su/change-status/' + id)
-                            .then((res) => {
-                                toastr.success('Cập Nhật Thành Công');
-                                this.loadData();
-                            });
-                    },
                 },
-            });
-        </script>
-    @endsection
+                loadData() {
+                    axios
+                        .get('/admin/nhan-su/data')
+                        .then((res) => {
+                            this.data = res.data.data;
+                        });
+                },
+                delTk() {
+                    axios
+                        .post('/admin/nhan-su/delete', this.del)
+                        .then((res) => {
+                            this.loadData();
+                            toastr.success('Xóa Thành Công');
+                        })
+                        .catch((res) => {
+                            $.each(res.response.data.errors, function(k, v) {
+                                toastr.error(v[0]);
+                            });
+                        });
+                },
+                change(id) {
+                    axios
+                        .get('/admin/nhan-su/change-status/' + id)
+                        .then((res) => {
+                            toastr.success('Cập Nhật Thành Công');
+                            this.loadData();
+                        });
+                },
+            },
+        });
+    </script>
+@endsection

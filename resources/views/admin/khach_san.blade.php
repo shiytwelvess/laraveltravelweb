@@ -35,8 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Mô Tả</label>
-                        <textarea id="moTa-editor" v-model='create_ks.moTa' type="text" class="form-control"
-                            placeholder="Mô tả"></textarea>
+                        <textarea id="moTa-editor" v-model='create_ks.moTa' type="text" class="form-control" placeholder="Mô tả"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="">Loại Phòng</label>
@@ -66,8 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Số Đêm</label>
-                        <input v-model='create_ks.soDem' type="number" class="form-control mb-2"
-                            placeholder="Nhập số Đêm">
+                        <input v-model='create_ks.soDem' type="number" class="form-control mb-2" placeholder="Nhập số Đêm">
                     </div>
                     <div class="form-group">
                         <label for="">Giá Cả</label>
@@ -113,7 +111,6 @@
                                     <th class="align-middle text-center">Số Đêm</th>
                                     <th class="align-middle text-center">Giá</th>
                                     <th class="align-middle text-center">Thông Tin Liên Lạc</th>
-                                    {{-- <th class="align-middle text-center">Tình Trạng</th> --}}
                                     <th class="align-middle text-center">Action</th>
                                 </tr>
                             </thead>
@@ -129,20 +126,16 @@
                                         <img v-bind:src="value.hinh_anh" style="width: 50px;height:30px">
                                     </td>
                                     <td class="text-center align-middle">
-                                        <button class="btn btn-info" v-on:click="moTa = value.moTa" data-bs-toggle="modal"
-                                            data-bs-target="#motanganModal">Mô tả</button>
+                                        <button class="btn btn-info" v-on:click="moTa = value.moTa"
+                                            data-bs-toggle="modal" data-bs-target="#motanganModal">Mô tả</button>
                                     </td>
-                                    {{-- <td class="align-middle text-center">@{{ value.moTa }}</td> --}}
-                                    <td class="align-middle text-center">@{{ value.loaiPhong === 0 ? 'Vip' : 'Bình Thường'}}</td>
+                                    <td class="align-middle text-center">@{{ value.loaiPhong === 0 ? 'Vip' : 'Bình Thường' }}</td>
                                     <td class="align-middle text-center">@{{ value.soGiuong }}</td>
                                     <td class="align-middle text-center">@{{ value.soNgay }}</td>
                                     <td class="align-middle text-center">@{{ value.soDem }}</td>
                                     <td class="align-middle text-center text-danger">@{{ formatCurrency(value.gia) }}</td>
-                                    {{-- <td class="align-middle text-center">@{{ value.gia }}</td> --}}
                                     <td class="align-middle text-center">@{{ value.lienLac }}</td>
 
-
-                                    {{-- <td class="align-middle text-center">@{{ value.trangThai === 0 ? 'Hết Phòng' : 'Còn Phòng' }}</td> --}}
 
                                     <td class="align-middle text-center">
                                         <button class="btn btn-primary"style="width: 100px" data-bs-toggle="modal"
@@ -158,24 +151,24 @@
 
 
                     <div class="modal fade" id="motanganModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Mô tả</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <textarea disabled id="ckeditorInstance" cols="30" rows="10" class="form-control">@{{ moTa }}</textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Đóng</button>
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Mô tả</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea disabled id="ckeditorInstance" cols="30" rows="10" class="form-control">@{{ moTa }}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Đóng</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -284,8 +277,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Thông Tin Liên Lạc</label>
-                                        <input v-model='up_ks.lienLac' type="text"
-                                        class="form-control mb-2" placeholder="Nhập thông tin liên lạc">
+                                        <input v-model='up_ks.lienLac' type="text" class="form-control mb-2"
+                                            placeholder="Nhập thông tin liên lạc">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Tình Trạng</label>
@@ -320,7 +313,7 @@
                 del_ks: {},
                 up_ks: {},
                 slug: '',
-                moTa:'',
+                moTa: '',
             },
             created() {
                 this.loadKS();
@@ -422,10 +415,10 @@
     </script>
     <script src="//cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
     <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             CKEDITOR.replace('moTa-editor').on('change', () => {
                 this.create_ks.moTa = CKEDITOR.instances['moTa-editor'].getData();
             });
         });
-        </script>
+    </script>
 @endsection
